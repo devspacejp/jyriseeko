@@ -18,7 +18,7 @@ results_title2 = []
 results_link2 = []
 print(time.ctime())
 #loopit sananetsintään listalta
-while True:
+def iParse():
 	for feed in feeds:	#for-loop käy listaa läpi
 		a = feedparser.parse(feed)
 		for item in a.entries:			#for-loop etsii listalta löytyvän linkin syötteestä sanaa
@@ -26,17 +26,13 @@ while True:
 				#item.title = (item.title[:110]) if len(item.title) > 110 else item.title	#jos otsikko liian pitkä lyhentää sen 110 characteriin, toimii
 				results_title1.append(item.title)			
 				results_link1.append(item.link)
-				print(results_title1,'\n')
-				print(results_link1,'\n')	
+				print(results_title1, '\n')
 			elif 'jyris' in item.title:
 				#item.title = (item.title[:110]) if len(item.title) > 110 else item.title #toimii
 				results_title2.append(item.title)
 				results_link2.append(item.link)			
-				print(results_title2,'\n')
-				print(results_link2,'\n')
+				print(results_title2, '\n')
 	else:
-		print('feeds käyty läpi')
+		print('feeds käyty läpi, 30min next', '\n')
 	
-	time.sleep(30)
-
 	
